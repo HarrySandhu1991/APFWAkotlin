@@ -36,8 +36,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private fun forgotPassword(){
 
         val forgotParams = HashMap<String,String>()
-        forgotParams["mobile"]= et_registeredMobileNumber.text.toString()
-        forgotParams["email"]= et_registeredEmail.text.toString()
+        forgotParams["mobile"] = et_registeredMobileNumber.text.toString()
+        forgotParams["email"] = et_registeredEmail.text.toString()
 
         val call:Call<ResponseBody> = ApiClient.getClient.forgotPassword(forgotParams)
         call.enqueue(object : Callback<ResponseBody> {

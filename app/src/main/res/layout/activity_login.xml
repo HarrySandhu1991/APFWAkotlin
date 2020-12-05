@@ -29,7 +29,7 @@
                 android:textColor="@color/colorTopText"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="25sp"
-                android:text="Promoters Login"/>
+                android:text="Login"/>
 
 
         </RelativeLayout>
@@ -51,23 +51,18 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_marginTop="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/et_mobileNumer"
-
                         android:textSize="12sp"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Mobile Number"
                         android:drawablePadding="10dp"
                         android:padding="15dp"
-                        android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
-
-                        />
+                        android:singleLine="true"/>
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -76,8 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="Password"
-                    android:background="@drawable/edit_text_border">
+                    android:hint="Password">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -85,8 +79,7 @@
                         android:id="@+id/et_password"
                         android:padding="15dp"
                         android:textSize="12sp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:theme="@style/MyEditTextTheme"/>
+                        android:fontFamily="@font/roboto_regular" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -138,6 +131,7 @@
                         android:id="@+id/btn_login"
                         android:fontFamily="@font/roboto_regular"
                         android:layout_margin="4dp"
+                        android:textColor="#FFFFFF"
                         android:text="Sign In"
                         android:background="@drawable/rounded_button_green"/>
 
@@ -150,7 +144,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Cancel"
                         android:textColor="@color/colorText"
-                        android:backgroundTint="@color/colorTopText"/>
+                        android:background="@drawable/rounded_gray_button" />
 
 
                 </LinearLayout>

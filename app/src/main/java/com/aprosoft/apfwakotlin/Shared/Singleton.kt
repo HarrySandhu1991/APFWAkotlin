@@ -35,6 +35,24 @@ class Singleton {
         }
     }
 
+    fun getUserIdFromSavedUser(context: Context) : String {
+        val userJSONObject = getUserFromSharedPrefrence(context)
+        if (userJSONObject != null) {
+            return userJSONObject.getString("user_id")
+        } else {
+            return ""
+        }
+    }
+
+    fun getUserRoleFromSavedUser(context: Context) :String {
+        val userJSONObject = getUserFromSharedPrefrence(context)
+        if (userJSONObject != null) {
+            return userJSONObject.getString("role_id")
+        } else {
+            return ""
+        }
+    }
+
     fun createLoading(context: Context?, title: String?, message: String?): KProgressHUD? {
         return KProgressHUD.create(context)
             .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)

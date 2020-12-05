@@ -55,6 +55,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/rl_prmoter_info"
                         android:layout_marginEnd="10dp">
 
 
@@ -134,7 +135,7 @@
                             android:layout_height="70dp"
                             android:layout_centerHorizontal="true"
                             android:layout_above="@id/tv_nursery_info"
-                            android:src="@mipmap/splash"/>
+                            android:src="@mipmap/ic_promoters_info"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -162,7 +163,7 @@
                             android:layout_height="70dp"
                             android:layout_centerHorizontal="true"
                             android:layout_above="@id/tv_promoters_login"
-                            android:src="@mipmap/splash"/>
+                            android:src="@mipmap/ic_promoters_info"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -173,7 +174,7 @@
                             android:textAlignment="center"
                             android:textColor="#000"
                             android:layout_alignParentBottom="true"
-                            android:text="Promoters Login"/>
+                            android:text="My\nTeam"/>
 
                     </RelativeLayout>
 
@@ -189,7 +190,7 @@
                             android:layout_height="70dp"
                             android:layout_centerHorizontal="true"
                             android:layout_above="@id/tv_contact_us"
-                            android:src="@mipmap/splash"/>
+                            android:src="@mipmap/ic_promoters_info"/>
 
                         <TextView
                             android:layout_width="wrap_content"

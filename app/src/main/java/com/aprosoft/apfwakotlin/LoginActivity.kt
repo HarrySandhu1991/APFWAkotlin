@@ -42,6 +42,19 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener {
 
+            val mobile = et_mobileNumber.text.toString()
+            val password = et_password.text.toString()
+
+            if (mobile.isBlank()) {
+                et_mobileNumber.setError("Mobile Number cannot be empty")
+                return@setOnClickListener
+            }
+
+            if (password.isBlank()) {
+                et_password.setError("Password cannot be empty")
+                return@setOnClickListener
+            }
+
             login()
         }
         tv_forgotPassword.setOnClickListener {
@@ -53,9 +66,9 @@ class LoginActivity : AppCompatActivity() {
 //        kProgressHUD= Singleton().createLoading(applicationContext,"Logging in","...")!!
 
         val loginParams= HashMap<String,String>()
-        loginParams["mobile"]=et_mobileNumber.text.toString()
-        loginParams["password"]=et_password.text.toString()
-        loginParams["device_id"]= "123"
+        loginParams["mobile"] = et_mobileNumber.text.toString()
+        loginParams["password"] = et_password.text.toString()
+        loginParams["device_id"] = "123"
 
         val call:Call<ResponseBody> = ApiClient.getClient.login(loginParams)
         call.enqueue(object : Callback<ResponseBody> {
@@ -71,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
                     val userDataObject = userDataArray.getJSONObject(0)
                     Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
                     Singleton().setSharedPrefrence(this@LoginActivity,userDataObject)
-                    intent = Intent(this@LoginActivity,AddPromoterActivity::class.java)
+                    intent = Intent(this@LoginActivity,DashboardActivity::class.java)
                     startActivity(intent)
                     this@LoginActivity.finish()
 

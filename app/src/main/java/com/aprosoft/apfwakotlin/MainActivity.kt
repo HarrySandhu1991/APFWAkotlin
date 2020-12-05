@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             /* Create an Intent that will start the Menu-Activity. */
-            val mainIntent = Intent(this, DashboardActivity::class.java)
+            val mainIntent = Intent(this, LoginActivity::class.java)
             startActivity(mainIntent)
             finish()
         }, 3000)

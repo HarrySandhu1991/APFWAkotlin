@@ -7,15 +7,16 @@ import android.widget.RelativeLayout
 
 class DashboardActivity : AppCompatActivity() {
     lateinit var rl_farmersInfromation:RelativeLayout
+    lateinit var rl_prmoter_info:RelativeLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val rl_promoterLogin =findViewById<RelativeLayout>(R.id.rl_promoterLogin)
+        rl_prmoter_info = findViewById<RelativeLayout>(R.id.rl_prmoter_info)
         rl_farmersInfromation= findViewById(R.id.rl_farmersInfromation)
 
-        rl_promoterLogin.setOnClickListener {
-            intent = Intent(this, LoginActivity::class.java)
+        rl_prmoter_info.setOnClickListener {
+            intent = Intent(this, PromotersInformationActivity::class.java)
             startActivity(intent)
         }
         rl_farmersInfromation.setOnClickListener {
