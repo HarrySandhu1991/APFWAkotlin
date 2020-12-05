@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFarmerActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreen">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_categories"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorGreen">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/colorTopText"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="25sp"
+                android:text="Farmers Information"/>
+
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_categories"
+            android:background="@drawable/corner_radius_view"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerState"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Select State"
+                        android:theme="@style/MyEditTextTheme"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerDistrict"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:hint="Select District"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerFullName"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:hint="Enter Full Name"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/et_farmerAddress"
+                        android:padding="5dp"
+                        android:lines="2"
+                        android:layout_margin="5dp"
+                        android:hint="Enter Address"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Land"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerLand"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerMobile"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:hint="Enter Mobile No"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerWhatsapp"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:hint="Enter Whatsapp No"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_border">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/et_farmerAdhar"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:hint="Enter Adhaar Card No"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Upload Reg Form"
+                        android:theme="@style/MyEditTextTheme"
+                        android:background="@drawable/edit_text_border"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.9"
+                        android:padding="8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="capture or browse image"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
+
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/btn_AddFarmer"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_margin="4dp"
+                        android:text="Add Farmer"
+                        android:background="@drawable/rounded_button_green"/>
+
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_farmerCancel"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Cancel"
+                        android:textColor="@color/colorText"
+                        android:backgroundTint="@color/colorTopText"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

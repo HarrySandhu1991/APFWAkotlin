@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreen">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_categories"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorGreen">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/colorTopText"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="25sp"
+                android:text="Promoters Login"/>
+
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_categories"
+            android:background="@drawable/corner_radius_view"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/edit_text_border">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/et_mobileNumer"
+
+                        android:textSize="12sp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Mobile Number"
+                        android:drawablePadding="10dp"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:theme="@style/MyEditTextTheme"
+
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Password"
+                    android:background="@drawable/edit_text_border">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/et_password"
+                        android:padding="15dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:theme="@style/MyEditTextTheme"/>
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:hint="Password"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:background="@drawable/edit_text_border"/>-->
+
+
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_forgotPassword"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="end"
+                    android:text="Forgot Password?"
+                    android:padding="15dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_regular"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/btn_login"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_margin="4dp"
+                        android:text="Sign In"
+                        android:background="@drawable/rounded_button_green"/>
+
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Cancel"
+                        android:textColor="@color/colorText"
+                        android:backgroundTint="@color/colorTopText"/>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
