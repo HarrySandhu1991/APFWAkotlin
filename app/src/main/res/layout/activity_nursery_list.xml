@@ -42,7 +42,10 @@
             android:layout_height="match_parent"
             android:layout_below="@id/rl_categories"
             android:background="@drawable/corner_radius_view"
-            android:padding="15dp">
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="55dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,22 +64,27 @@
             </LinearLayout>
 
 
+
+
+
         </ScrollView>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_addNursery"
-            android:text="Add Nursery"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:textAllCaps="false"
-            />
+
     </RelativeLayout>
 
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/btn_addNursery"
+        android:text="Add Nursery"
+        android:background="@drawable/rounded_button_green"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:textAllCaps="false" />
 
 
 </RelativeLayout>

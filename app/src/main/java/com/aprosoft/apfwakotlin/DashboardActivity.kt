@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.aprosoft.apfwakotlin.Adapter.PromotionalAdapter
 import com.aprosoft.apfwakotlin.Billing.AddBillActivity
+import com.aprosoft.apfwakotlin.Billing.BillingListActivity
 import com.aprosoft.apfwakotlin.Contact.ContactUsActivity
 import com.aprosoft.apfwakotlin.Farmers.Admin.FarmerListActivity
 import com.aprosoft.apfwakotlin.Farmers.FarmerInformationActivity
@@ -81,7 +82,7 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         rl_billing_info.setOnClickListener {
-            val intent = Intent(this, AddBillActivity::class.java)
+            val intent = Intent(this, BillingListActivity::class.java)
             startActivity(intent)
         }
 
@@ -220,7 +221,11 @@ class DashboardActivity : AppCompatActivity() {
         unSelectEverything()
         val v = categoryViews!![position]
         val linearLayout = v.findViewById<View>(R.id.ll_main) as LinearLayout
-        linearLayout.background = getDrawable(R.drawable.rounded_green_border)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            linearLayout.background = getDrawable(R.drawable.rounded_green_border)
+        } else {
+            linearLayout.background = resources.getDrawable(R.drawable.rounded_green_border)
+        }
         val tv_cat_name = v.findViewById<TextView>(R.id.tv_cat_name)
         tv_cat_name.setTextColor(Color.WHITE)
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -239,7 +244,9 @@ class DashboardActivity : AppCompatActivity() {
         for (i in categoryViews!!.indices) {
             val v = categoryViews!![i]
             val linearLayout = v.findViewById<View>(R.id.ll_main) as LinearLayout
-            linearLayout.background = getDrawable(R.drawable.rounded_gray_border)
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                linearLayout.background = getDrawable(R.drawable.rounded_gray_border)
+            }
             val tv_cat_name = v.findViewById<TextView>(R.id.tv_cat_name)
             tv_cat_name.setTextColor(Color.BLACK)
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
