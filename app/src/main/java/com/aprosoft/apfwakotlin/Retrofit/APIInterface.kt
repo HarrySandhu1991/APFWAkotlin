@@ -63,6 +63,10 @@ interface APIInterface {
     @POST("Mobile_App/Farmer_API/check_farmer")
     fun checkFarmer(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
 
+    @FormUrlEncoded
+    @POST("Mobile_App/Farmer_API/search_farmer")
+    fun searchFarmer(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
+
 
     @FormUrlEncoded
     @POST("Mobile_App/Master_API/my_team_counter")
@@ -88,6 +92,11 @@ interface APIInterface {
     @POST("Mobile_App/Master_API/add_promoter_user")
     @Multipart
     fun addPromoter(@Part profile_image: MultipartBody.Part, @Part adhar_image: MultipartBody.Part, @PartMap data:HashMap<String, RequestBody>) : Call<ResponseBody>
+
+
+    @POST("Mobile_App/Transaction_API/add_bill")
+    @Multipart
+    fun addBill(@Part profile_image: MultipartBody.Part,@PartMap data:HashMap<String, RequestBody>) : Call<ResponseBody>
 
 
 

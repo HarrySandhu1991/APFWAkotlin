@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.aprosoft.apfwakotlin.Adapter.PromotionalAdapter
+import com.aprosoft.apfwakotlin.Billing.AddBillActivity
 import com.aprosoft.apfwakotlin.Contact.ContactUsActivity
 import com.aprosoft.apfwakotlin.Farmers.Admin.FarmerListActivity
 import com.aprosoft.apfwakotlin.Farmers.FarmerInformationActivity
@@ -46,10 +47,10 @@ class DashboardActivity : AppCompatActivity() {
         val user_id = Singleton().getUserIdFromSavedUser(this)
         var role_id = Singleton().getUserRoleFromSavedUser(this)
 
-        if (role_id != "5") {
+        if (role_id != "5" && role_id != "1") {
             rl_billing_info.visibility = View.GONE
         }
-        if (role_id == "3") {
+        if (role_id == "1") {
             ll_bottom.visibility = View.VISIBLE
         }
 
@@ -76,6 +77,11 @@ class DashboardActivity : AppCompatActivity() {
 
         rl_my_team.setOnClickListener {
             val intent = Intent(this, MyTeamActivity::class.java)
+            startActivity(intent)
+        }
+
+        rl_billing_info.setOnClickListener {
+            val intent = Intent(this, AddBillActivity::class.java)
             startActivity(intent)
         }
 

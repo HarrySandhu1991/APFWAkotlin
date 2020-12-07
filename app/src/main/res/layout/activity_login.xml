@@ -58,6 +58,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/et_mobileNumer"
                         android:textSize="12sp"
+                        android:inputType="phone"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Mobile Number"
                         android:drawablePadding="10dp"
@@ -79,6 +80,7 @@
                         android:id="@+id/et_password"
                         android:padding="15dp"
                         android:textSize="12sp"
+                        android:inputType="textPassword"
                         android:fontFamily="@font/roboto_regular" />
 
 

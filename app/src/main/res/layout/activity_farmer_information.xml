@@ -67,7 +67,7 @@
                         android:inputType="number"
                         android:id="@+id/et_farmer_reg_no"
                         android:fontFamily="@font/roboto_regular"
-                        android:hint="Enter Farmer Reg no or Adhar No"/>
+                        android:hint="Enter Farmer Adhar No"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 

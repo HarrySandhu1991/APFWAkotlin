@@ -54,7 +54,7 @@ class FarmerInformationActivity : AppCompatActivity() {
 
     fun checkAdhaarCard() {
         val adhaarNo = et_farmer_reg_no.text.toString()
-        if (adhaarNo.isBlank()) {
+        if (adhaarNo.isBlank() || adhaarNo.length < 12) {
             et_farmer_reg_no.error = "Not a valid input"
             return
         }
