@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPromoterActivity">
+    tools:context=".Promoters.AddPromoterActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,8 +27,8 @@
                 android:textAlignment="center"
                 android:gravity="center"
                 android:textColor="@color/colorTopText"
-                android:fontFamily="@font/roboto_regular"
-                android:textSize="25sp"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="30sp"
                 android:text="Add Promoter"/>
 
 
@@ -49,178 +49,225 @@
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"
+                    android:text="Select State"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/sp_state"/>
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"
+                    android:layout_marginTop="10dp"
+                    android:text="Select District"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/sp_district"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Select Role Type"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:id="@+id/spinner_roleList"
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterName"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Enter Promoter Name"
-                        android:drawablePadding="10dp"
-                        android:padding="15dp"
-                        android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
-                        />
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterEmail"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
+                        android:inputType="textEmailAddress"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Enter Promoter Email"
                         android:drawablePadding="10dp"
-                        android:padding="15dp"
                         android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterAddress"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Enter Address"
                         android:drawablePadding="10dp"
                         android:lines="2"
-                        android:padding="15dp"
                         android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterMobileNo"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
+                        android:inputType="phone"
                         android:hint="Enter Mobile No"
                         android:drawablePadding="10dp"
                         android:lines="2"
-                        android:padding="15dp"
-                        android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
-                        />
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterWhatsappNo"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Enter Whatsapp No"
+                        android:inputType="phone"
                         android:drawablePadding="10dp"
                         android:lines="2"
-                        android:padding="15dp"
                         android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/edit_text_border">
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_promoterAdharNo"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
+                        android:inputType="number"
                         android:hint="Enter Adhaar Card No"
                         android:drawablePadding="10dp"
                         android:lines="2"
-                        android:padding="15dp"
-                        android:singleLine="true"
-                        android:theme="@style/MyEditTextTheme"
-                        />
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/et_searchAdharNumber"
-                        android:padding="5dp"
-                        android:layout_margin="5dp"
-                        android:ems="10"
-                        android:hint="Enter Adhaar Card No"
-                        android:fontFamily="@font/roboto_regular"
-                        android:background="@drawable/edit_text_border"/>
+                        android:textSize="@dimen/text_size"
+                        android:padding="10dp"
+                        android:gravity="start|center_vertical"
+                        android:hint="Select Adhaar Card"
+                        android:fontFamily="@font/roboto_regular"/>
 
                     <ImageButton
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib_adhaar_card"
                         android:backgroundTint="@android:color/transparent"
-                        android:src="@drawable/ic_search"/>
+                        android:src="@drawable/ic_image_camera"/>
 
                 </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_searchPhoto"
+                        android:textSize="@dimen/text_size"
+                        android:padding="10dp"
+                        android:gravity="start|center_vertical"
+                        android:hint="Select Image"
+                        android:fontFamily="@font/roboto_regular"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib_profile_image"
+                        android:backgroundTint="@android:color/transparent"
+                        android:src="@drawable/ic_image_camera"/>
+
+                </LinearLayout>
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:layout_marginBottom="30dp">
+
+
                     <Button
+                        android:id="@+id/btn_addPromoter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_addPromoter"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
                         android:layout_margin="4dp"
-                        android:text="Add Promoter"
-                        android:background="@drawable/rounded_button_green"/>
-
+                        android:layout_weight="1"
+                        android:textColor="#FFF"
+                        android:background="@drawable/rounded_button_green"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Add Promoter" />
 
                     <Button
                         android:layout_width="0dp"
@@ -228,10 +275,9 @@
                         android:id="@+id/btn_promoterCancel"
                         android:layout_weight="1"
                         android:layout_margin="4dp"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/roboto_bold"
                         android:text="Cancel"
-                        android:textColor="@color/colorText"
-                        android:backgroundTint="@color/colorTopText"/>
+                        android:background="@drawable/rounded_gray_button"/>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

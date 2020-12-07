@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Farmers.AddFarmerActivity">
+    tools:context=".Promotional.AddPromotionalMaterialActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:text="Add Farmer"/>
+                android:text="Promotional Material"/>
 
 
         </RelativeLayout>
@@ -55,63 +56,26 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/text_size"
-                    android:text="Select State"/>
+                    android:text="Select Material Type"/>
+
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/sp_state"/>
+                    android:id="@+id/sp_material_type"/>
 
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textSize="@dimen/text_size"
-                    android:layout_marginTop="10dp"
-                    android:text="Select District"/>
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/sp_district"/>
-
-<!--                <com.google.android.material.textfield.TextInputLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:layout_marginTop="12dp">-->
-<!--                    <EditText-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:id="@+id/et_farmerState"-->
-<!--                        android:textSize="@dimen/text_size"-->
-<!--                        android:fontFamily="@font/roboto_regular"-->
-<!--                        android:hint="Select State"-->
-<!--                        />-->
-<!--                </com.google.android.material.textfield.TextInputLayout>-->
-<!--                <com.google.android.material.textfield.TextInputLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:layout_marginTop="10dp">-->
-<!--                    <EditText-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:id="@+id/et_farmerDistrict"-->
-<!--                        android:textSize="@dimen/text_size"-->
-<!--                        android:hint="Select District"-->
-<!--                        android:fontFamily="@font/roboto_regular"-->
-<!--                        />-->
-<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp">
+
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/et_farmerFullName"
+                        android:id="@+id/et_materialLanguage"
                         android:textSize="@dimen/text_size"
-                        android:hint="Enter Full Name"
+                        android:hint="Material Language"
                         android:fontFamily="@font/roboto_regular"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -119,14 +83,13 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Material Title"
                     android:layout_marginTop="10dp">
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/et_farmerAddress"
+                        android:id="@+id/et_materialTitle"
                         android:textSize="@dimen/text_size"
-                        android:lines="3"
-                        android:hint="Enter Address"
                         android:fontFamily="@font/roboto_regular"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,65 +97,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
-                    android:hint="Land">
+                    android:id="@+id/til_youtube_link"
+                    android:hint="Youtube Link">
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:id="@+id/et_farmerLand"
+                        android:id="@+id/et_youtube_link"
                         android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/et_farmerMobile"
-                        android:inputType="phone"
-                        android:textSize="@dimen/text_size"
-                        android:hint="Enter Mobile No"
-                        android:fontFamily="@font/roboto_regular" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/et_farmerWhatsapp"
-                        android:textSize="@dimen/text_size"
-                        android:inputType="phone"
-                        android:hint="Enter Whatsapp No"
-                        android:fontFamily="@font/roboto_regular" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/et_farmerAdhar"
-                        android:inputType="number"
-                        android:textSize="@dimen/text_size"
-                        android:hint="Enter Adhaar Card No"
-                        android:fontFamily="@font/roboto_regular"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
 
@@ -200,6 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:id="@+id/ll_images"
                     android:orientation="horizontal">
 
 
@@ -211,14 +126,14 @@
                         android:padding="10dp"
                         android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
-                        android:hint="Upload Reg Form"
+                        android:hint="Upload File"
                         android:theme="@style/MyEditTextTheme" />
 
 
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:id="@+id/ib_farmer_add_image"
+                        android:id="@+id/ib_promotional_file"
                         android:backgroundTint="@android:color/transparent"
                         android:src="@drawable/ic_image_camera"/>
 
@@ -238,10 +153,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:id="@+id/btn_AddFarmer"
+                        android:id="@+id/btn_AddMaterial"
                         android:fontFamily="@font/roboto_regular"
                         android:layout_margin="4dp"
-                        android:text="Add Farmer"
+                        android:text="Add Material"
                         android:background="@drawable/rounded_button_green"/>
 
 
@@ -269,5 +184,4 @@
     </RelativeLayout>
 
 
-
-</FrameLayout>
+</RelativeLayout>

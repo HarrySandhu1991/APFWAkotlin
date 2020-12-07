@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         if (Singleton().getUserFromSharedPrefrence(this)==null){
 
         }else{
-            intent = Intent(this@LoginActivity,AddPromoterActivity::class.java)
+            intent = Intent(this@LoginActivity,DashboardActivity::class.java)
             startActivity(intent)
             this@LoginActivity.finish()
         }

@@ -3,6 +3,9 @@
     package="com.aprosoft.apfwakotlin">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,14 +15,58 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.Custom"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NurseryListActivity"></activity>
-        <activity android:name=".AddFarmerActivity" />
-        <activity android:name=".AddPromoterActivity" />
-        <activity android:name=".PromotersInformationActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".DashboardActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Billing.AddBillActivity"></activity>
+        <activity
+            android:name=".Farmers.FarmerRegistrationFormActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Promotional.AddPromotionalMaterialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Farmers.Admin.FarmerListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Billing.BillingListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Contact.ContactUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Team.TeamMemberListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Team.MyTeamActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Farmers.FarmerInformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Promoters.PromoterIdCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Nursery.NurseryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Farmers.AddFarmerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Promoters.AddPromoterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Promoters.PromotersInformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DashboardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -33,8 +33,37 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="80dp"
+                android:background="@color/colorGreen">
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:background="@color/colorGreen"
+                    android:textColor="#FFF"
+                    android:id="@+id/tv_registered_members"
+                    android:layout_centerHorizontal="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="REGISTERD MEMBERS"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:background="@color/colorGreen"
+                    android:textColor="#FFF"
+                    android:id="@+id/tv_registered_members_count"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/tv_registered_members"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text=""
+                    android:textStyle="bold"/>
 
 
             </RelativeLayout>
@@ -42,7 +71,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="wrap_content">
 
 
                 <LinearLayout
@@ -120,6 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_marginTop="10dp"
+                    android:id="@+id/ll_middle"
                     android:layout_below="@id/ll_top_icons"
                     android:layout_centerHorizontal="true"
                     android:orientation="horizontal">
@@ -127,6 +157,7 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/rl_nursery_info"
                         android:layout_weight="1.2">
 
 
@@ -155,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="2dp"
-                        android:id="@+id/rl_promoterLogin">
+                        android:id="@+id/rl_my_team">
 
 
                         <ImageView
@@ -182,6 +213,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:id="@+id/rl_billing_info"
+                        android:layout_marginStart="5dp">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_above="@id/tv_billing_info"
+                            android:src="@mipmap/ic_promoters_info"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/tv_billing_info"
+                            android:textSize="13sp"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:layout_alignParentBottom="true"
+                            android:text="Billing\nInformation"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/rl_contact_us"
                         android:layout_marginStart="5dp">
 
 
@@ -205,7 +265,169 @@
 
                     </RelativeLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:id="@+id/ll_bottom"
+                    android:layout_below="@id/ll_middle"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rl_promotional_content"
+                        android:layout_weight="1.2">
+
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_above="@id/tv_promotional_content"
+                            android:src="@mipmap/ic_promoters_info"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="13sp"
+                            android:textColor="#000"
+                            android:textAlignment="center"
+                            android:id="@+id/tv_promotional_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="Promotional\nContent"/>
+
+                    </RelativeLayout>
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_marginStart="2dp"-->
+<!--                        android:id="@+id/rl_my_team">-->
+
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="80dp"-->
+<!--                            android:layout_height="70dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_above="@id/tv_promoters_login"-->
+<!--                            android:src="@mipmap/ic_promoters_info"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:id="@+id/tv_promoters_login"-->
+<!--                            android:textSize="13sp"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="#000"-->
+<!--                            android:layout_alignParentBottom="true"-->
+<!--                            android:text="My\nTeam"/>-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:id="@+id/rl_billing_info"-->
+<!--                        android:layout_marginStart="5dp">-->
+
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="80dp"-->
+<!--                            android:layout_height="70dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_above="@id/tv_billing_info"-->
+<!--                            android:src="@mipmap/ic_promoters_info"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:id="@+id/tv_billing_info"-->
+<!--                            android:textSize="13sp"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="#000"-->
+<!--                            android:layout_alignParentBottom="true"-->
+<!--                            android:text="Billing\nInformation"/>-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:id="@+id/rl_contact_us"-->
+<!--                        android:layout_marginStart="5dp">-->
+
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="80dp"-->
+<!--                            android:layout_height="70dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_above="@id/tv_contact_us"-->
+<!--                            android:src="@mipmap/ic_promoters_info"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:id="@+id/tv_contact_us"-->
+<!--                            android:textSize="13sp"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="#000"-->
+<!--                            android:layout_alignParentBottom="true"-->
+<!--                            android:text="Contact\nUs"/>-->
+
+<!--                    </RelativeLayout>-->
+                </LinearLayout>
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:scrollbars="none"
+                android:id="@+id/horizontalScrollView">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/ll_categories"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+            </HorizontalScrollView>
+            </RelativeLayout>
+
+
+
+            <com.aprosoft.apfwakotlin.NonScrollListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lv_promotional_content"/>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

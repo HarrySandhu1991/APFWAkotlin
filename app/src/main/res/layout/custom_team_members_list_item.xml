@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Name"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Mobile"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_ch"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Channel\nHead"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_rm"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Regional\nManager"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_cm"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Channel\nManager"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_am"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Area\nManager"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Nursery\nOwner"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_dh"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="District\nHead"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_d"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Distributors"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_td"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:lines="2"
+            android:text="Taluka\nDealers"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

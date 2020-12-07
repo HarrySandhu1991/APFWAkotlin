@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="18sp"
+                android:id="@+id/tv_farmer_name"
+                android:background="@color/colorGreen"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_owner"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/tv_farmer_name">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_farmer_address"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/ll_mobile_number"
+                android:layout_below="@id/ll_owner">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Number"
+                    android:id="@+id/tv_farmer_number"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/ll_mobile_number">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Adhaar Number"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Adhaar"
+                    android:id="@+id/tv_farmer_adhaar"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Nursery.NurseryListActivity">
+    tools:context=".Billing.BillingListActivity">
 
 
 
@@ -31,41 +31,33 @@
                 android:textColor="@color/colorTopText"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="30sp"
-                android:text="Nursery Information"/>
+                android:text="Billing List"/>
 
 
         </RelativeLayout>
 
 
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/rl_categories"
             android:background="@drawable/corner_radius_view"
-            android:padding="15dp">
+            android:padding="10dp">
 
-            <LinearLayout
+
+            <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:id="@+id/lv_team_list"
+                android:divider="@null"
+                android:layout_margin="10dp"/>
 
 
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lv_nursery_list"
-                    android:divider="@null"
-                    android:layout_margin="5dp"/>
 
-            </LinearLayout>
-
-
-        </ScrollView>
+        </RelativeLayout>
 
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

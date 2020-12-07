@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Farmers.FarmerRegistrationFormActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/iv_top_header"
+                android:src="@mipmap/cash_receipt_header"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_below="@id/iv_top_header">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Membership No. : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="4dp"
+                            android:id="@+id/tv_membership_no"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textStyle="bold"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:id="@+id/tv_membership_date"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textStyle="bold"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Received From : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="4dp"
+                            android:id="@+id/tv_received_from"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textStyle="bold"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adhaar No. : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="4dp"
+                            android:id="@+id/tv_adhaar_no"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Amount                           :"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Rs. 100/- (Rupees One Hundred Only)"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Membership Period     :"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="For Lifetime"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Taluka Dealer                :"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_taluka_dealer_name"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile No. : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_taluka_dealer_mobile"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="District Distributor       :"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="4dp"
+                            android:id="@+id/tv_district_distributor_name"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile No. : "
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_district_distributor_number"
+                            android:paddingStart="4dp"
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_medium"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/view_bottom"
+                    android:background="#A8CF46"
+                    android:layout_above="@id/rl_bottom_bar"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/rl_bottom_bar"
+                    android:background="@color/colorGreen"
+                    android:layout_alignParentBottom="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:textColor="#FFF"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:text="Regd. Office: C-III-05, Sterling Towers, Gavat Mandai, Shahupuri, Kolhapur - 416008 (MAH). Mob. 8459596960"/>
+
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

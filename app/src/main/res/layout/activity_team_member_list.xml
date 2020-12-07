@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Nursery.NurseryListActivity">
-
+    tools:context=".Team.TeamMemberListActivity">
 
 
     <RelativeLayout
@@ -26,46 +24,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textColor="@color/colorTopText"
                 android:fontFamily="@font/roboto_regular"
-                android:textSize="30sp"
-                android:text="Nursery Information"/>
+                android:gravity="center"
+                android:text="Team Members"
+                android:textAlignment="center"
+                android:textColor="@color/colorTopText"
+                android:textSize="30sp" />
 
 
         </RelativeLayout>
 
 
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/rl_categories"
             android:background="@drawable/corner_radius_view"
-            android:padding="15dp">
+            android:padding="10dp">
 
-            <LinearLayout
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.aprosoft.apfwakotlin.NonScrollListView
+                        android:id="@+id/lv_team_member_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:divider="@null" />
+
+                </HorizontalScrollView>
 
 
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lv_nursery_list"
-                    android:divider="@null"
-                    android:layout_margin="5dp"/>
-
-            </LinearLayout>
+            </ScrollView>
 
 
-        </ScrollView>
+        </RelativeLayout>
 
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>
