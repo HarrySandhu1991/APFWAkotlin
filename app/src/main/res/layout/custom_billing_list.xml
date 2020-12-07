@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Farmer Name"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="18sp"
+                android:id="@+id/tv_farmer_name"
+                android:background="@color/colorGreen"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_BillingId"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/tv_farmer_name">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tv_billingID"
+                                    android:text="Billing Number"
+                                    android:layout_weight="0.4"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textSize="@dimen/text_size"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_regNo"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_BillingId">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_regNo"
+                    android:text="Farmer Registration no"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_owner"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_regNo">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_farmerId"
+                    android:text="Farmer Id"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/ll_farmerAddress"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_owner">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:id="@+id/tv_farmer_billing_address"
+                    android:layout_weight="1"
+                    android:lines="3"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_farmerAddress">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Amount"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:id="@+id/tv_farmer_billing_amount"
+                    android:layout_weight="1"
+                    android:lines="3"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,10 +1,12 @@
 package com.aprosoft.apfwakotlin.Nursery
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.aprosoft.apfwakotlin.R
+import com.aprosoft.apfwakotlin.Shared.Singleton
 import com.aprosoftech.apfwa.Retrofit.ApiClient
 import kotlinx.android.synthetic.main.activity_nursery_list.*
 import okhttp3.ResponseBody
@@ -24,14 +26,21 @@ class NurseryListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nursery_list)
 
         getNurseryList()
+
+        btn_addNursery.setOnClickListener {
+            intent= Intent(this,AddNurseryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
 
     fun getNurseryList() {
+        val kProgressHUD = Singleton().createLoading(this,"Loading","")
         val call:Call<ResponseBody> = ApiClient.getClient.nurseryList()
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                kProgressHUD?.dismiss()
                 val res = response.body()?.string()
                 val jsonObject = JSONObject(res)
                 val status = jsonObject.getInt("status")

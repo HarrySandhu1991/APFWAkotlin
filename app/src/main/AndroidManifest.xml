@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.Custom"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Billing.AddBillActivity"></activity>
+        <activity android:name=".Nursery.AddNurseryActivity"></activity>
+        <activity android:name=".Billing.AddBillActivity" />
         <activity
             android:name=".Farmers.FarmerRegistrationFormActivity"
             android:screenOrientation="landscape" />
