@@ -117,5 +117,14 @@ interface APIInterface {
     @Multipart
     fun addPromotionalWithoutImage(@PartMap data:HashMap<String, RequestBody>) : Call<ResponseBody>
 
+    @FormUrlEncoded
+    @POST("Mobile_App/Master_API/add_nursery")
+    fun addNursery(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("Mobile_App/Transaction_API/nursery_owner_bill_list")
+    fun nurseryOwnerBillList(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
+
+
 
 }

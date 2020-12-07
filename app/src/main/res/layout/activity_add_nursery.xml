@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nursery.AddNurseryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreen">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_categories"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorGreen">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/colorTopText"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="30sp"
+                android:text="Add Nursery"/>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_categories"
+            android:background="@drawable/corner_radius_view"
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:id="@+id/ll_addNursery">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_nurseryName"
+                    android:textSize="@dimen/text_size"
+                    android:hint="Nursery Name"
+                    android:fontFamily="@font/roboto_regular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_nurseryAddress"
+                    android:textSize="@dimen/text_size"
+                    android:hint="Nursery Address"
+                    android:fontFamily="@font/roboto_regular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size"
+                android:text="Select State"
+                android:layout_marginTop="10dp"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/nursery_state"
+                android:layout_marginTop="10dp"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size"
+                android:layout_marginTop="10dp"
+                android:text="Select District"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/nursery_district"
+                android:layout_marginTop="10dp"/>
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp">-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/et_stateId"-->
+<!--                    android:textSize="@dimen/text_size"-->
+<!--                    android:hint="State Id"-->
+<!--                    android:fontFamily="@font/roboto_regular"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp">-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/et_districtId"-->
+<!--                    android:textSize="@dimen/text_size"-->
+<!--                    android:hint="District Id"-->
+<!--                    android:fontFamily="@font/roboto_regular"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_nurseryOwner"
+                    android:textSize="@dimen/text_size"
+                    android:hint="Nursery Owner Name"
+                    android:fontFamily="@font/roboto_regular"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="10dp">-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/et_nurseryStatus"-->
+<!--                    android:textSize="@dimen/text_size"-->
+<!--                    android:hint="Nursery Status"-->
+<!--                    android:fontFamily="@font/roboto_regular"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_addNurseryDetails"
+            android:text="Add Nursery"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:ems="10"
+            android:textAllCaps="false"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

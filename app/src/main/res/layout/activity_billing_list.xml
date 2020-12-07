@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorGreen">
 
-
         <RelativeLayout
             android:id="@+id/rl_categories"
             android:layout_width="match_parent"
@@ -48,10 +47,9 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/lv_team_list"
+                android:id="@+id/lv_billing_list"
                 android:divider="@null"
                 android:layout_margin="10dp"/>
-
 
 
         </RelativeLayout>
