@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_logout"
         android:layout_alignParentTop="true"
         android:id="@+id/sv_main">
 
@@ -35,11 +34,14 @@
             </RelativeLayout>
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
+                android:layout_height="125dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorGreen">
+                android:gravity="center"
+                android:background="@drawable/rounded_corner"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
 
                 <TextView
@@ -54,11 +56,26 @@
                     android:paddingEnd="10dp"
                     android:text="REGISTERED MEMBERS"
                     android:textStyle="bold"/>
-                
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@color/colorGreen"
+                    android:textColor="#FFF"
+                    android:id="@+id/tv_registered_members2"
+                    android:layout_centerHorizontal="true"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_margin="5dp"
+                    android:text="COUNT TILL DATE"
+                    android:textStyle="bold"/>
+
                 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="55dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:layout_below="@id/tv_registered_members">
@@ -80,6 +97,7 @@
                         android:paddingEnd="15dp"
                         android:paddingBottom="13dp"
                         android:layout_margin="2dp"
+                        android:textStyle="bold"
                         android:id="@+id/tv_lac"
                         android:textColor="#FFF"
                         android:background="@drawable/border"
@@ -93,6 +111,7 @@
                         android:paddingEnd="15dp"
                         android:layout_margin="2dp"
                         android:textColor="#FFF"
+                        android:textStyle="bold"
                         android:id="@+id/tv_ten_thousand"
                         android:paddingBottom="13dp"
                         android:background="@drawable/border"
@@ -106,6 +125,7 @@
                         android:paddingEnd="15dp"
                         android:layout_margin="2dp"
                         android:textColor="#FFF"
+                        android:textStyle="bold"
                         android:id="@+id/tv_thousand"
                         android:paddingBottom="13dp"
                         android:background="@drawable/border"
@@ -118,6 +138,7 @@
                         android:paddingStart="15dp"
                         android:layout_margin="2dp"
                         android:paddingEnd="15dp"
+                        android:textStyle="bold"
                         android:id="@+id/tv_hundreds"
                         android:paddingBottom="13dp"
                         android:textColor="#FFF"
@@ -132,6 +153,7 @@
                         android:layout_margin="2dp"
                         android:paddingEnd="15dp"
                         android:id="@+id/tv_tens"
+                        android:textStyle="bold"
                         android:paddingBottom="13dp"
                         android:textColor="#FFF"
                         android:background="@drawable/border"
@@ -146,6 +168,7 @@
                         android:layout_margin="2dp"
                         android:textColor="#FFF"
                         android:id="@+id/tv_ones"
+                        android:textStyle="bold"
                         android:paddingBottom="13dp"
                         android:background="@drawable/border"
                         android:textSize="30sp"
@@ -175,7 +198,7 @@
                     android:textStyle="bold"/>
 
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
             <RelativeLayout
@@ -184,15 +207,16 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:id="@+id/ll_top_icons"
                     android:layout_centerHorizontal="true"
                     android:orientation="horizontal">
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:id="@+id/rl_prmoter_info"
                         android:layout_marginEnd="10dp">
 
@@ -221,9 +245,10 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
+                        android:layout_weight="1"
                         android:id="@+id/rl_farmersInfromation">
 
 
@@ -251,44 +276,46 @@
                     </RelativeLayout>
 
 
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/ll_middle"
-                    android:layout_below="@id/ll_top_icons"
-                    android:layout_centerHorizontal="true"
-                    android:orientation="horizontal">
-
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rl_nursery_info"
-                        android:layout_weight="1.2">
+                        android:layout_weight="1"
+                        android:id="@+id/rl_billing_info"
+                        android:layout_marginStart="5dp">
 
 
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="70dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_above="@id/tv_nursery_info"
+                            android:layout_above="@id/tv_billing_info"
                             android:src="@mipmap/ic_promoters_info"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
+                            android:id="@+id/tv_billing_info"
                             android:textSize="13sp"
-                            android:textColor="#000"
                             android:textAlignment="center"
-                            android:id="@+id/tv_nursery_info"
+                            android:textColor="#000"
                             android:layout_alignParentBottom="true"
-                            android:text="Nursery Information"/>
+                            android:text="Billing\nInformation"/>
 
                     </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/ll_middle"
+                    android:layout_below="@id/ll_top_icons"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
 
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -318,33 +345,34 @@
 
                     </RelativeLayout>
 
+
                     <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:id="@+id/rl_billing_info"
-                        android:layout_marginStart="5dp">
+                        android:layout_height="match_parent"
+                        android:id="@+id/rl_nursery_info"
+                        android:layout_weight="1">
 
 
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="70dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_above="@id/tv_billing_info"
+                            android:layout_above="@id/tv_nursery_info"
                             android:src="@mipmap/ic_promoters_info"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:id="@+id/tv_billing_info"
                             android:textSize="13sp"
-                            android:textAlignment="center"
                             android:textColor="#000"
+                            android:textAlignment="center"
+                            android:id="@+id/tv_nursery_info"
                             android:layout_alignParentBottom="true"
-                            android:text="Billing\nInformation"/>
+                            android:text="Nursery\nInformation"/>
 
                     </RelativeLayout>
+
 
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -376,8 +404,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:visibility="gone"
                     android:id="@+id/ll_bottom"
@@ -386,15 +414,27 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/rl_promotional_content"
                         android:layout_weight="1.2">
 
 
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="20sp"
+                            android:textColor="#FFF"
+                            android:text="Add Promotional Content"
+                            android:background="@drawable/rounded_button_green"/>
+
+
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="70dp"
+                            android:visibility="gone"
                             android:layout_centerHorizontal="true"
                             android:layout_above="@id/tv_promotional_content"
                             android:src="@mipmap/ic_promoters_info"/>
@@ -403,6 +443,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
+                            android:visibility="gone"
                             android:textSize="13sp"
                             android:textColor="#000"
                             android:textAlignment="center"
@@ -502,9 +543,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <HorizontalScrollView
+            <ScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
@@ -520,7 +561,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:id="@+id/ll_categories"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                 </LinearLayout>
 
@@ -528,7 +569,7 @@
 
 
 
-            </HorizontalScrollView>
+            </ScrollView>
             </RelativeLayout>
 
 
@@ -537,18 +578,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/lv_promotional_content"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="LOGOUT"
+                android:id="@+id/btn_logout"
+                android:textColor="#FFF"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button_green"/>
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="LOGOUT"
-        android:id="@+id/btn_logout"
-        android:textColor="#FFF"
-        android:fontFamily="@font/roboto_bold"
-        android:textSize="@dimen/text_size"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_button_green"/>
+
 </RelativeLayout>

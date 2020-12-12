@@ -17,6 +17,7 @@ import com.aprosoft.apfwakotlin.R
 import com.aprosoft.apfwakotlin.Shared.Singleton
 import com.aprosoftech.apfwa.Retrofit.ApiClient
 import kotlinx.android.synthetic.main.activity_farmer_information.*
+import kotlinx.android.synthetic.main.activity_promoters_information.*
 import okhttp3.ResponseBody
 import org.json.JSONArray
 import org.json.JSONObject
@@ -185,6 +186,11 @@ class FarmerInformationActivity : AppCompatActivity() {
 
         adhaarNo = adhaarNo.replace("-","")
 
+        if (adhaarNo.length < 12) {
+            et_promoter_adhaar_no.error = "Enter valid Adhaar no."
+            return
+        }
+
         val user_id = Singleton().getUserIdFromSavedUser(this)
         var role_id = Singleton().getUserRoleFromSavedUser(this)
 
@@ -230,6 +236,7 @@ class FarmerInformationActivity : AppCompatActivity() {
 //                        et_user_email.setText(userObject!!.getString("user_email"))
                     } else {
                         val intent = Intent(this@FarmerInformationActivity, AddFarmerActivity::class.java)
+                        intent.putExtra("ADHAAR",et_farmer_reg_no.text.toString())
                         startActivity(intent)
                     }
 
@@ -238,6 +245,7 @@ class FarmerInformationActivity : AppCompatActivity() {
                     message = jsonObject.getString("message")
                     Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@FarmerInformationActivity, AddFarmerActivity::class.java)
+                    intent.putExtra("ADHAAR",et_farmer_reg_no.text.toString())
                     startActivity(intent)
                 }
             }

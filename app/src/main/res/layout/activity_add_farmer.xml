@@ -110,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/et_farmerFullName"
-                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:textSize="@dimen/text_size"
                         android:hint="Enter Full Name"
                         android:fontFamily="@font/roboto_regular"/>

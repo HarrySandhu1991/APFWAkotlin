@@ -203,6 +203,11 @@ class PromotersInformationActivity : AppCompatActivity() {
 
         adhaarNo = adhaarNo.replace("-","")
 
+        if (adhaarNo.length < 12) {
+            et_promoter_adhaar_no.error = "Enter valid Adhaar no."
+            return
+        }
+
 
         val user_id = Singleton().getUserIdFromSavedUser(this)
         var role_id = Singleton().getUserRoleFromSavedUser(this)
@@ -238,6 +243,7 @@ class PromotersInformationActivity : AppCompatActivity() {
                         btn_show_id_card.visibility = View.VISIBLE
                     } else {
                         val intent = Intent(this@PromotersInformationActivity,AddPromoterActivity::class.java)
+                        intent.putExtra("ADHAAR",et_promoter_adhaar_no.text.toString())
                         startActivity(intent)
                     }
 
@@ -246,6 +252,7 @@ class PromotersInformationActivity : AppCompatActivity() {
                     message = jsonObject.getString("message")
                     Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@PromotersInformationActivity,AddPromoterActivity::class.java)
+                    intent.putExtra("ADHAAR",et_promoter_adhaar_no.text.toString())
                     startActivity(intent)
                 }
             }

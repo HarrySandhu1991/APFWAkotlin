@@ -17,7 +17,6 @@ import com.aprosoftech.apfwa.Retrofit.ApiClient
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
-import kotlinx.android.synthetic.main.activity_add_farmer.*
 import kotlinx.android.synthetic.main.activity_add_promoter.*
 import kotlinx.android.synthetic.main.activity_add_promoter.iv_selected_image
 import kotlinx.android.synthetic.main.activity_add_promoter.sp_district
@@ -69,6 +68,11 @@ class AddPromoterActivity : AppCompatActivity() {
         roleId = Singleton().getUserRoleFromSavedUser(this)
         userStatus = userObject.getString("user_status")
 
+
+        if (intent.hasExtra("ADHAAR")) {
+            val adhaar = intent.extras!!.getString("ADHAAR")
+            et_promoterAdharNo.setText(adhaar)
+        }
 
 //        spinner = findViewById(R.id.spinner_roleList)
 //        et_promoterName= findViewById(R.id.et_promoterName)
@@ -329,12 +333,12 @@ class AddPromoterActivity : AppCompatActivity() {
 
         var adhaarNo = et_promoterAdharNo.text.toString()
         if (adhaarNo.isBlank()) {
-            et_farmerAdhar.error = "Adhaar No. is required"
+            et_promoterAdharNo.error = "Adhaar No. is required"
             return
         }
 
         if (adhaarNo.length < 12 && adhaarNo.length != 14) {
-            et_farmerAdhar.error = "Adhaar No. is not valid"
+            et_promoterAdharNo.error = "Adhaar No. is not valid"
             return
         }
 

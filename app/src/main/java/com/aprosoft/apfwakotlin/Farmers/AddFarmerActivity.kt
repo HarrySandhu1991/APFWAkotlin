@@ -69,6 +69,11 @@ class AddFarmerActivity : AppCompatActivity() {
             }
         }
 
+        if (intent.hasExtra("ADHAAR")) {
+            val adhaar = intent.extras!!.getString("ADHAAR")
+            et_farmerAdhar.setText(adhaar)
+        }
+
 //        et_farmerAdhar.addTextChangedListener(object : TextWatcher {
 //
 //            override fun afterTextChanged(s: Editable) {}
