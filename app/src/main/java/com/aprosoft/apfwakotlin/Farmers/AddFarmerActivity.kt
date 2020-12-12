@@ -3,6 +3,8 @@ package com.aprosoft.apfwakotlin.Farmers
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -14,7 +16,6 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_add_farmer.*
-import kotlinx.android.synthetic.main.activity_promoters_information.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -64,9 +65,136 @@ class AddFarmerActivity : AppCompatActivity() {
             if (isEditing) {
                 selectedFarmer = JSONObject(intent.extras!!.getString("FARMER"))
                 showFarmerData()
+                btn_AddFarmer.setText("Update Farmer")
             }
         }
 
+//        et_farmerAdhar.addTextChangedListener(object : TextWatcher {
+//
+//            override fun afterTextChanged(s: Editable) {}
+//
+//            override fun beforeTextChanged(s: CharSequence, start: Int,
+//                                           count: Int, after: Int) {
+//            }
+//
+//            override fun onTextChanged(s: CharSequence, start: Int,
+//                                       before: Int, count: Int) {
+//                if(count < before) {
+////                    Toast.makeText(this@AddFarmerActivity, "backspace pressed", Toast.LENGTH_SHORT).show()
+//                    val text = et_farmerAdhar.text.toString()
+//                    if (text.length == 4) {
+//
+//                        et_farmerAdhar.setText("${et_farmerAdhar.text.toString()}-")
+//                        et_farmerAdhar.setSelection(et_farmerAdhar.text.toString().length);
+//                    } else if (text.length == 9) {
+//                        et_farmerAdhar.setText("${et_farmerAdhar.text}-")
+//                        et_farmerAdhar.setSelection(et_farmerAdhar.text.length);
+//                    }
+//                    // implement your own code
+//                } else {
+//                    val text = et_farmerAdhar.text.toString()
+//                    if (text.length == 4) {
+//                        et_farmerAdhar.setText("${et_farmerAdhar.text.toString()}-")
+//                        et_farmerAdhar.setSelection(et_farmerAdhar.text.toString().length);
+//                    } else if (text.length == 9) {
+//                        et_farmerAdhar.setText("${et_farmerAdhar.text.toString()}-")
+//                        et_farmerAdhar.setSelection(et_farmerAdhar.text.length);
+//                    }
+//                }
+//            }
+//        })
+
+        et_farmerAdhar.addTextChangedListener(object : TextWatcher {
+            private val TOTAL_SYMBOLS = 14 // size of pattern 0000-0000-0000-0000
+            private val TOTAL_DIGITS = 12 // max numbers of digits in pattern: 0000 x 4
+            private val DIVIDER_MODULO =
+                    5 // means divider position is every 5th symbol beginning with 1
+            private val DIVIDER_POSITION =
+                    DIVIDER_MODULO - 1 // means divider position is every 4th symbol beginning with 0
+            private val DIVIDER = '-'
+            override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+            ) { // noop
+            }
+
+            override fun onTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    before: Int,
+                    count: Int
+            ) { // noop
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                if (!isInputCorrect(s, TOTAL_SYMBOLS, DIVIDER_MODULO, DIVIDER)) {
+
+                    var repl = buildCorrectString(
+                            getDigitArray(s, TOTAL_DIGITS),
+                            DIVIDER_POSITION,
+                            DIVIDER
+                    )
+
+                    et_farmerAdhar.clearFocus();
+                    et_farmerAdhar.setText(repl);
+                    et_farmerAdhar.requestFocus();
+                    et_farmerAdhar.setSelection(repl!!.length);
+
+                }
+            }
+
+            private fun isInputCorrect(
+                    s: Editable,
+                    totalSymbols: Int,
+                    dividerModulo: Int,
+                    divider: Char
+            ): Boolean {
+                var isCorrect =
+                        s.length <= totalSymbols // check size of entered string
+                for (i in 0 until s.length) { // check that every element is right
+                    isCorrect = if (i > 0 && (i + 1) % dividerModulo == 0) {
+                        isCorrect and (divider == s[i])
+                    } else {
+                        isCorrect and Character.isDigit(s[i])
+                    }
+                }
+                return isCorrect
+            }
+
+            private fun buildCorrectString(
+                    digits: CharArray,
+                    dividerPosition: Int,
+                    divider: Char
+            ): String? {
+                val formatted = StringBuilder()
+                for (i in digits.indices) {
+                    if (digits[i] != '\u0000') {
+                        formatted.append(digits[i])
+                        if (i > 0 && i < digits.size - 1 && (i + 1) % dividerPosition == 0) {
+                            formatted.append(divider)
+                        }
+                    }
+                }
+                return formatted.toString()
+            }
+
+            private fun getDigitArray(s: Editable, size: Int): CharArray {
+                val digits = CharArray(size)
+                var index = 0
+                var i = 0
+                while (i < s.length && index < size) {
+                    val current = s[i]
+                    if (Character.isDigit(current)) {
+                        digits[index] = current
+                        index++
+                    }
+                    i++
+                }
+                return digits
+            }
+        })
 
 //        et_farmerState = findViewById(R.id.et_farmerState)
 //        et_farmerDistrict = findViewById(R.id.et_farmerDistrict)
@@ -81,6 +209,10 @@ class AddFarmerActivity : AppCompatActivity() {
 
 
         ib_farmer_add_image.setOnClickListener {
+            selectProfileImage()
+        }
+
+        iv_selected_image.setOnClickListener {
             selectProfileImage()
         }
 
@@ -167,7 +299,7 @@ class AddFarmerActivity : AppCompatActivity() {
                         if (resultCode == Activity.RESULT_OK) {
                             //Image Uri will not be null for RESULT_OK
                             val fileUri = data?.data
-//                            imgProfile.setImageURI(fileUri)
+                            iv_selected_image.setImageURI(fileUri)
                             //You can get File object from intent
                             profileImage = ImagePicker.getFile(data)
                             //You can also get File Path from intent
@@ -209,6 +341,8 @@ class AddFarmerActivity : AppCompatActivity() {
         val selectedDisctrictId = districtList!!.getJSONObject(selectedDistrictPos).getString("district_id")
 
 
+        var adhaarNo = et_farmerAdhar.text.toString()
+        adhaarNo = adhaarNo.replace("-","")
 
         val addFarmerParams = HashMap<String,RequestBody>()
         addFarmerParams["user_id"] = RetrofitUtils.StringtoRequestBody(userId)
@@ -220,7 +354,7 @@ class AddFarmerActivity : AppCompatActivity() {
         addFarmerParams["district_id"] = RetrofitUtils.StringtoRequestBody(selectedDisctrictId)
         addFarmerParams["farmer_mobile"]= RetrofitUtils.StringtoRequestBody(et_farmerMobile.text.toString())
         addFarmerParams["farmer_whatsapp_no"]= RetrofitUtils.StringtoRequestBody(et_farmerWhatsapp.text.toString())
-        addFarmerParams["farmer_adhar_no"]= RetrofitUtils.StringtoRequestBody(et_farmerAdhar.text.toString())
+        addFarmerParams["farmer_adhar_no"]= RetrofitUtils.StringtoRequestBody(adhaarNo)
         addFarmerParams["farmer_tot_land"] = RetrofitUtils.StringtoRequestBody(et_farmerLand.text.toString())
         addFarmerParams["farmer_status"] = RetrofitUtils.StringtoRequestBody(userStatus)
 
@@ -266,7 +400,8 @@ class AddFarmerActivity : AppCompatActivity() {
         val selectedStateId = stateList!!.getJSONObject(selectedStatePos).getString("state_id")
         val selectedDisctrictId = districtList!!.getJSONObject(selectedDistrictPos).getString("district_id")
 
-
+        var adhaarNo = et_farmerAdhar.text.toString()
+        adhaarNo = adhaarNo.replace("-","")
 
         val addFarmerParams = HashMap<String,RequestBody>()
         addFarmerParams["user_id"] = RetrofitUtils.StringtoRequestBody(userId)
@@ -277,7 +412,7 @@ class AddFarmerActivity : AppCompatActivity() {
         addFarmerParams["district_id"] = RetrofitUtils.StringtoRequestBody(selectedDisctrictId)
         addFarmerParams["farmer_mobile"]= RetrofitUtils.StringtoRequestBody(et_farmerMobile.text.toString())
         addFarmerParams["farmer_whatsapp_no"]= RetrofitUtils.StringtoRequestBody(et_farmerWhatsapp.text.toString())
-        addFarmerParams["farmer_adhar_no"]= RetrofitUtils.StringtoRequestBody(et_farmerAdhar.text.toString())
+        addFarmerParams["farmer_adhar_no"]= RetrofitUtils.StringtoRequestBody(adhaarNo)
         addFarmerParams["farmer_tot_land"] = RetrofitUtils.StringtoRequestBody(et_farmerLand.text.toString())
         addFarmerParams["farmer_status"] = RetrofitUtils.StringtoRequestBody(userStatus)
 

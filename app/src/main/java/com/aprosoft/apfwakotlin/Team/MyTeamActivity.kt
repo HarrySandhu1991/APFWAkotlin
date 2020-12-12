@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.aprosoft.apfwakotlin.Farmers.Admin.FarmerListActivity
 import com.aprosoft.apfwakotlin.R
 import com.aprosoft.apfwakotlin.Shared.Singleton
 import com.aprosoftech.apfwa.Retrofit.ApiClient
@@ -24,6 +25,11 @@ class MyTeamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_team)
 
+
+        btn_farmer_list.setOnClickListener {
+            val intent = Intent(this, FarmerListActivity::class.java)
+            startActivity(intent)
+        }
 
         getTeamList()
     }
@@ -58,7 +64,7 @@ class MyTeamActivity : AppCompatActivity() {
                         intent.putExtra("P_ID",tempTeam.getString("role_id"))
                         startActivity(intent)
                     }
-                }else{
+                } else {
                     msg = jsonObject.getString("message")
                 }
                 Log.d("response", "$jsonObject")

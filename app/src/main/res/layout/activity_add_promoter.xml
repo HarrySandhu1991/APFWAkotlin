@@ -40,15 +40,14 @@
             android:layout_height="match_parent"
             android:layout_below="@id/rl_categories"
             android:background="@drawable/corner_radius_view"
-            android:padding="15dp"
-            >
+            android:padding="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -97,6 +96,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/et_promoterName"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Enter Promoter Name"
@@ -186,6 +186,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/et_promoterAdharNo"
                         android:textSize="@dimen/text_size"
+                        android:maxLength="14"
                         android:fontFamily="@font/roboto_regular"
                         android:inputType="number"
                         android:hint="Enter Adhaar Card No"
@@ -197,13 +198,13 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/et_searchAdharNumber"
                         android:textSize="@dimen/text_size"
@@ -219,18 +220,24 @@
                         android:backgroundTint="@android:color/transparent"
                         android:src="@drawable/ic_image_camera"/>
 
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/iv_selected_adhaar"/>
+
                 </LinearLayout>
 
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/et_searchPhoto"
                         android:textSize="@dimen/text_size"
@@ -245,6 +252,11 @@
                         android:id="@+id/ib_profile_image"
                         android:backgroundTint="@android:color/transparent"
                         android:src="@drawable/ic_image_camera"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/iv_selected_image"/>
 
                 </LinearLayout>
 

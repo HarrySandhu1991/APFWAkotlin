@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.custom_list_nursery.view.*
 import org.json.JSONArray
 
 class NurseryListAdapter(val context: Context,
-                         val array:JSONArray) : BaseAdapter() {
+                         var array:JSONArray) : BaseAdapter() {
 
     private val inflater: LayoutInflater
             = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -34,8 +34,15 @@ class NurseryListAdapter(val context: Context,
         val tempNurseryObject = array.getJSONObject(p0)
         rowView.tv_nursery_name.text = tempNurseryObject.getString("nursery_name")
         rowView.tv_nursery_owner.text = tempNurseryObject.getString("nursery_owner")
+        rowView.tv_state.text = tempNurseryObject.getString("state_name")
+        rowView.tv_district.text = tempNurseryObject.getString("district_name")
         rowView.tv_nursery_address.text = tempNurseryObject.getString("nursery_address")
 
         return rowView
+    }
+
+    fun reloadList(array: JSONArray) {
+        this.array = array
+        this.notifyDataSetChanged()
     }
 }

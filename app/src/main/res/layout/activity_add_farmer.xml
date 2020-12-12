@@ -110,6 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/et_farmerFullName"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:textSize="@dimen/text_size"
                         android:hint="Enter Full Name"
                         android:fontFamily="@font/roboto_regular"/>
@@ -134,11 +135,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
-                    android:hint="Land">
+                    android:hint="Land in Acres">
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:id="@+id/et_farmerLand"
+                        android:inputType="number"
                         android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"/>
 
@@ -185,6 +187,7 @@
                         android:layout_height="match_parent"
                         android:id="@+id/et_farmerAdhar"
                         android:inputType="number"
+                        android:maxLength="14"
                         android:textSize="@dimen/text_size"
                         android:hint="Enter Adhaar Card No"
                         android:fontFamily="@font/roboto_regular"/>
@@ -205,13 +208,13 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:textAlignment="center"
                         android:gravity="center"
                         android:padding="10dp"
                         android:textSize="@dimen/text_size"
                         android:fontFamily="@font/roboto_regular"
-                        android:hint="Upload Reg Form"
+                        android:hint="Upload Adhar card"
                         android:theme="@style/MyEditTextTheme" />
 
 
@@ -221,6 +224,12 @@
                         android:id="@+id/ib_farmer_add_image"
                         android:backgroundTint="@android:color/transparent"
                         android:src="@drawable/ic_image_camera"/>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/iv_selected_image"/>
 
                 </LinearLayout>
 

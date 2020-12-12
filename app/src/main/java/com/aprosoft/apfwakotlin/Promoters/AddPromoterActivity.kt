@@ -3,6 +3,9 @@ package com.aprosoft.apfwakotlin.Promoters
 import android.app.Activity
 import android.app.AlertDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -16,6 +19,7 @@ import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_add_farmer.*
 import kotlinx.android.synthetic.main.activity_add_promoter.*
+import kotlinx.android.synthetic.main.activity_add_promoter.iv_selected_image
 import kotlinx.android.synthetic.main.activity_add_promoter.sp_district
 import kotlinx.android.synthetic.main.activity_add_promoter.sp_state
 import okhttp3.MultipartBody
@@ -76,6 +80,100 @@ class AddPromoterActivity : AppCompatActivity() {
 //        et_promoterEmail= findViewById(R.id.et_promoterEmail)
 //        btn_addPromoter= findViewById(R.id.btn_addPromoter)
 //        btn_promoterCancel= findViewById(R.id.btn_promoterCancel)
+
+        et_promoterAdharNo.addTextChangedListener(object : TextWatcher {
+            private val TOTAL_SYMBOLS = 19 // size of pattern 0000-0000-0000-0000
+            private val TOTAL_DIGITS = 16 // max numbers of digits in pattern: 0000 x 4
+            private val DIVIDER_MODULO =
+                    5 // means divider position is every 5th symbol beginning with 1
+            private val DIVIDER_POSITION =
+                    DIVIDER_MODULO - 1 // means divider position is every 4th symbol beginning with 0
+            private val DIVIDER = '-'
+            override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+            ) { // noop
+            }
+
+            override fun onTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    before: Int,
+                    count: Int
+            ) { // noop
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                if (!isInputCorrect(s, TOTAL_SYMBOLS, DIVIDER_MODULO, DIVIDER)) {
+
+                    var repl = buildCorrectString(
+                            getDigitArray(s, TOTAL_DIGITS),
+                            DIVIDER_POSITION,
+                            DIVIDER
+                    )
+
+                    et_promoterAdharNo.clearFocus();
+                    et_promoterAdharNo.setText(repl);
+                    et_promoterAdharNo.requestFocus();
+                    et_promoterAdharNo.setSelection(repl!!.length);
+
+                }
+            }
+
+            private fun isInputCorrect(
+                    s: Editable,
+                    totalSymbols: Int,
+                    dividerModulo: Int,
+                    divider: Char
+            ): Boolean {
+                var isCorrect =
+                        s.length <= totalSymbols // check size of entered string
+                for (i in 0 until s.length) { // check that every element is right
+                    isCorrect = if (i > 0 && (i + 1) % dividerModulo == 0) {
+                        isCorrect and (divider == s[i])
+                    } else {
+                        isCorrect and Character.isDigit(s[i])
+                    }
+                }
+                return isCorrect
+            }
+
+            private fun buildCorrectString(
+                    digits: CharArray,
+                    dividerPosition: Int,
+                    divider: Char
+            ): String? {
+                val formatted = StringBuilder()
+                for (i in digits.indices) {
+                    if (digits[i] != '\u0000') {
+                        formatted.append(digits[i])
+                        if (i > 0 && i < digits.size - 1 && (i + 1) % dividerPosition == 0) {
+                            formatted.append(divider)
+                        }
+                    }
+                }
+                return formatted.toString()
+            }
+
+            private fun getDigitArray(s: Editable, size: Int): CharArray {
+                val digits = CharArray(size)
+                var index = 0
+                var i = 0
+                while (i < s.length && index < size) {
+                    val current = s[i]
+                    if (Character.isDigit(current)) {
+                        digits[index] = current
+                        index++
+                    }
+                    i++
+                }
+                return digits
+            }
+        })
+
+
 
 
         btn_addPromoter.setOnClickListener {
@@ -151,7 +249,7 @@ class AddPromoterActivity : AppCompatActivity() {
                         if (resultCode == Activity.RESULT_OK) {
                             //Image Uri will not be null for RESULT_OK
                             val fileUri = data?.data
-//                            imgProfile.setImageURI(fileUri)
+                            iv_selected_image.setImageURI(fileUri)
                             //You can get File object from intent
                             profileImage = ImagePicker.getFile(data)
                             //You can also get File Path from intent
@@ -166,9 +264,9 @@ class AddPromoterActivity : AppCompatActivity() {
 
             override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
                 Toast.makeText(
-                    this@AddPromoterActivity,
-                    "Permission Denied${deniedPermissions.toString()}".trimIndent(),
-                    Toast.LENGTH_SHORT
+                        this@AddPromoterActivity,
+                        "Permission Denied${deniedPermissions.toString()}".trimIndent(),
+                        Toast.LENGTH_SHORT
                 ).show()
             }
         }
@@ -177,9 +275,9 @@ class AddPromoterActivity : AppCompatActivity() {
             .setPermissionListener(permissionListener)
             .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
             .setPermissions(
-                android.Manifest.permission.CAMERA,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
             ).check()
     }
 
@@ -194,7 +292,7 @@ class AddPromoterActivity : AppCompatActivity() {
                         if (resultCode == Activity.RESULT_OK) {
                             //Image Uri will not be null for RESULT_OK
                             val fileUri = data?.data
-//                            imgProfile.setImageURI(fileUri)
+                            iv_selected_adhaar.setImageURI(fileUri)
                             //You can get File object from intent
                             adhaarImage = ImagePicker.getFile(data)
                             //You can also get File Path from intent
@@ -209,9 +307,9 @@ class AddPromoterActivity : AppCompatActivity() {
 
             override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
                 Toast.makeText(
-                    this@AddPromoterActivity,
-                    "Permission Denied${deniedPermissions.toString()}".trimIndent(),
-                    Toast.LENGTH_SHORT
+                        this@AddPromoterActivity,
+                        "Permission Denied${deniedPermissions.toString()}".trimIndent(),
+                        Toast.LENGTH_SHORT
                 ).show()
             }
         }
@@ -220,14 +318,25 @@ class AddPromoterActivity : AppCompatActivity() {
             .setPermissionListener(permissionListener)
             .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
             .setPermissions(
-                android.Manifest.permission.CAMERA,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
             ).check()
     }
 
 
     private fun addPromoter(){
+
+        var adhaarNo = et_promoterAdharNo.text.toString()
+        if (adhaarNo.isBlank()) {
+            et_farmerAdhar.error = "Adhaar No. is required"
+            return
+        }
+
+        if (adhaarNo.length < 12 && adhaarNo.length != 14) {
+            et_farmerAdhar.error = "Adhaar No. is not valid"
+            return
+        }
 
         val selectedRoleIndex = spinner_roleList.selectedItemPosition
         val tempSelectedRoleObject = roleListArray.getJSONObject(selectedRoleIndex)
@@ -242,6 +351,8 @@ class AddPromoterActivity : AppCompatActivity() {
 
 
 
+        adhaarNo = adhaarNo.replace("-","")
+
         val promoterParams = HashMap<String, RequestBody>()
         promoterParams["user_id"]= RetrofitUtils.StringtoRequestBody(userId)
         promoterParams["user_role_id"]= RetrofitUtils.StringtoRequestBody(roleId)
@@ -251,7 +362,7 @@ class AddPromoterActivity : AppCompatActivity() {
         promoterParams["user_mobile"]= RetrofitUtils.StringtoRequestBody(et_promoterMobileNo.text.toString())
         promoterParams["user_email"]= RetrofitUtils.StringtoRequestBody(et_promoterEmail.text.toString())
         promoterParams["user_whatsapp_no"]= RetrofitUtils.StringtoRequestBody(et_promoterWhatsappNo.text.toString())
-        promoterParams["user_adhar_no"]= RetrofitUtils.StringtoRequestBody(et_promoterAdharNo.text.toString())
+        promoterParams["user_adhar_no"]= RetrofitUtils.StringtoRequestBody(adhaarNo)
         promoterParams["user_status"]= RetrofitUtils.StringtoRequestBody("1")
         promoterParams["state_id"]= RetrofitUtils.StringtoRequestBody(selectedStateId)
         promoterParams["district_id"] = RetrofitUtils.StringtoRequestBody(selectedDisctrictId)
@@ -268,7 +379,7 @@ class AddPromoterActivity : AppCompatActivity() {
 
 
 
-        val call:Call<ResponseBody> = ApiClient.getClient.addPromoter(profilePic,adhaarPic,promoterParams)
+        val call:Call<ResponseBody> = ApiClient.getClient.addPromoter(profilePic, adhaarPic, promoterParams)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 val res = response.body()?.string()
@@ -285,12 +396,12 @@ class AddPromoterActivity : AppCompatActivity() {
                     builder.setIcon(android.R.drawable.ic_dialog_info)
 
                     //performing positive action
-                    builder.setPositiveButton("OK"){dialogInterface, which ->
+                    builder.setPositiveButton("OK") { dialogInterface, which ->
 //                        Toast.makeText(applicationContext,"clicked yes",Toast.LENGTH_LONG).show()
                         this@AddPromoterActivity.finish()
                     }
                     //performing cancel action
-                    builder.setNeutralButton("Cancel"){dialogInterface , which ->
+                    builder.setNeutralButton("Cancel") { dialogInterface, which ->
 //                        Toast.makeText(applicationContext,"clicked cancel\n operation cancel",Toast.LENGTH_LONG).show()
                     }
                     //performing negative action
@@ -366,7 +477,7 @@ class AddPromoterActivity : AppCompatActivity() {
             roleNamesArray.add(tempRole.getString("role_name"))
         }
         spinner_roleList.adapter = ArrayAdapter<String>(this@AddPromoterActivity,
-                            android.R.layout.simple_spinner_dropdown_item,roleNamesArray)
+                android.R.layout.simple_spinner_dropdown_item, roleNamesArray)
 
 
     }
@@ -377,12 +488,12 @@ class AddPromoterActivity : AppCompatActivity() {
                 val res = response.body()?.string()
                 val jsonObject = JSONObject(res)
                 val status = jsonObject.getInt("status")
-                var msg: String?=null
-                var imageStatus: String?=null
+                var msg: String? = null
+                var imageStatus: String? = null
                 if (status == 1) {
                     stateList = jsonObject.getJSONArray("state_list")
                     showStates()
-                }else{
+                } else {
                     msg = jsonObject.getString("message")
                 }
                 Log.d("response", "$jsonObject")
@@ -402,7 +513,7 @@ class AddPromoterActivity : AppCompatActivity() {
             val tempState = stateList!!.getJSONObject(i)
             statesArrayList.add(tempState.getString("state_name"))
         }
-        sp_state.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,statesArrayList)
+        sp_state.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, statesArrayList)
         sp_state.onItemSelectedListener =  object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 getDistricts()
@@ -451,7 +562,7 @@ class AddPromoterActivity : AppCompatActivity() {
             val tempState = districtList!!.getJSONObject(i)
             statesArrayList.add(tempState.getString("district_name"))
         }
-        sp_district.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,statesArrayList)
+        sp_district.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, statesArrayList)
 
     }
 }

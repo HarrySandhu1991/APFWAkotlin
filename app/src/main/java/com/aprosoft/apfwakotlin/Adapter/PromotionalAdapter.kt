@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import android.widget.BaseAdapter
 import com.aprosoft.apfwakotlin.R
 import com.bumptech.glide.Glide
@@ -41,10 +42,23 @@ class PromotionalAdapter(val context: Context,
         if (tempNurseryObject.getString("material_type").equals("3")) {
             rowView.iv_thumbnail.setBackgroundColor(Color.BLACK)
             rowView.iv_thumbnail.alpha = 0.5F
+            rowView.wv_video.webViewClient = WebViewClient();
+//            rowView.wv_video.webChromeClient = MyWebChromeClient( url_api );
+            rowView.wv_video.settings.javaScriptEnabled = true;
+            rowView.wv_video.settings.setSupportZoom(true);
+            rowView.wv_video.settings.allowContentAccess = true;
+            rowView.wv_video.settings.builtInZoomControls = false;
+            rowView.wv_video.settings.displayZoomControls = false;
+            rowView.wv_video.loadUrl(tempNurseryObject.getString("material_youtube_url"))
+
+            rowView.wv_video.visibility = View.VISIBLE
+            rowView.iv_thumbnail.visibility = View.GONE
         } else {
             rowView.iv_thumbnail.setBackgroundColor(Color.WHITE)
             rowView.iv_thumbnail.alpha = 1.0F
             val image = tempNurseryObject.getString("material_file")
+            rowView.wv_video.visibility = View.GONE
+            rowView.iv_thumbnail.visibility = View.VISIBLE
             Glide.with(context).load("${imgBaseUrl}${image}").into(rowView.iv_thumbnail)
         }
 

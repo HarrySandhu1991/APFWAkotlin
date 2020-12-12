@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -29,15 +30,26 @@
                 android:textSize="18sp"/>
 
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:id="@+id/iv_thumbnail"
-                app:shapeAppearanceOverlay="@style/roundedImageView"
-                android:background="@drawable/corner_radius_view"
-                android:scaleType="fitXY"
                 android:layout_below="@id/tv_promotional_title" />
+
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                android:id="@+id/wv_video"
+                android:layout_below="@id/tv_promotional_title"
+                tools:ignore="WebViewLayout" />
 
         </RelativeLayout>
 

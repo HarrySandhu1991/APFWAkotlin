@@ -53,6 +53,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/ll_farmerAdhaar"
                     android:orientation="horizontal">
 
 
@@ -79,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:id="@+id/ll_farmer_options"
                     android:orientation="horizontal">
 
 
@@ -270,7 +272,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Click here to Display Registration Form"/>
+                    android:text="Click here to Display Receipt"/>
 
 
             </LinearLayout>

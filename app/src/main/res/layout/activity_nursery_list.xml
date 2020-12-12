@@ -11,27 +11,54 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="@color/colorGreen">
 
 
         <RelativeLayout
             android:id="@+id/rl_categories"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:background="@color/colorGreen">
 
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:textColor="@color/colorTopText"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="30sp"
+                android:id="@+id/tv_nursery_info"
                 android:text="Nursery Information"/>
+
+
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tv_nursery_info"
+                android:src="@drawable/ic_search"
+                android:id="@+id/btn_search"
+                android:visibility="gone"
+                android:background="@drawable/rounded_gray_button"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:hint="Search"
+                android:id="@+id/et_search_nursery"
+                android:background="@drawable/rounded_gray_border"
+                android:textColor="#FFF"
+                android:textColorHint="#FFF"
+                android:layout_below="@id/tv_nursery_info"/>
 
 
         </RelativeLayout>
@@ -45,7 +72,7 @@
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:paddingTop="15dp"
-            android:paddingBottom="55dp">
+            android:paddingBottom="65dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

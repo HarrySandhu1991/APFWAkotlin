@@ -22,14 +22,30 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center"
-                android:text="Team Members"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/colorTopText"
-                android:textSize="30sp" />
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="20sp"
+                android:layout_above="@id/et_search_team_member"
+                android:text="Team Members"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Search"
+                android:id="@+id/et_search_team_member"
+                android:textColor="#FFF"
+                android:textColorHint="#FFF"
+                android:textSize="@dimen/text_size"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_margin="5dp"
+                android:background="@drawable/rounded_gray_border"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignParentBottom="true"/>
+
 
 
         </RelativeLayout>

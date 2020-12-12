@@ -46,12 +46,12 @@ class LoginActivity : AppCompatActivity() {
             val password = et_password.text.toString()
 
             if (mobile.isBlank()) {
-                et_mobileNumber.setError("Mobile Number cannot be empty")
+                et_mobileNumber.error = "Mobile Number cannot be empty"
                 return@setOnClickListener
             }
 
             if (password.isBlank()) {
-                et_password.setError("Password cannot be empty")
+                et_password.error = "Password cannot be empty"
                 return@setOnClickListener
             }
 
@@ -80,13 +80,24 @@ class LoginActivity : AppCompatActivity() {
                 var message: String? = null
                 if (status == 1) {
                     message = jsonObject.getString("message")
-                    val userDataArray = jsonObject.getJSONArray("user_data")
-                    val userDataObject = userDataArray.getJSONObject(0)
-                    Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
-                    Singleton().setSharedPrefrence(this@LoginActivity,userDataObject)
-                    intent = Intent(this@LoginActivity,DashboardActivity::class.java)
-                    startActivity(intent)
-                    this@LoginActivity.finish()
+                    if (jsonObject.getString("login_type") == "farmer") {
+                        val userDataArray = jsonObject.getJSONArray("farmer_data")
+                        val userDataObject = userDataArray.getJSONObject(0)
+                        userDataObject.put("role_id",jsonObject.getString("login_type"))
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+                        Singleton().setSharedPrefrence(this@LoginActivity,userDataObject)
+                        intent = Intent(this@LoginActivity,DashboardActivity::class.java)
+                        startActivity(intent)
+                        this@LoginActivity.finish()
+                    } else {
+                        val userDataArray = jsonObject.getJSONArray("user_data")
+                        val userDataObject = userDataArray.getJSONObject(0)
+                        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+                        Singleton().setSharedPrefrence(this@LoginActivity, userDataObject)
+                        intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                        startActivity(intent)
+                        this@LoginActivity.finish()
+                    }
 
                 }else{
                     message = jsonObject.getString("message")

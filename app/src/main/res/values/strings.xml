@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">APFWAkotlin</string>
+    <string name="app_name">APFWA</string>
     <dimen name="text_size">14sp</dimen>
 
     <style name="roundedImageView" parent="">

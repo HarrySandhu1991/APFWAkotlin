@@ -15,7 +15,6 @@ import com.aprosoftech.apfwa.Retrofit.ApiClient
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
-import kotlinx.android.synthetic.main.activity_add_farmer.*
 import kotlinx.android.synthetic.main.activity_add_promotional_material.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -85,7 +84,6 @@ class AddPromotionalMaterialActivity : AppCompatActivity() {
                 Toast.makeText(this,"Select a file",Toast.LENGTH_LONG).show()
                 return
             }
-            profileImage = null// File("")
         }
 
 
@@ -103,6 +101,9 @@ class AddPromotionalMaterialActivity : AppCompatActivity() {
 
         val call: Call<ResponseBody>
         if (profileImage == null) {
+//            if (sp_material_type.selectedItemPosition != 2) {
+//                Toast.makeText(this,"")
+//            }
             call = ApiClient.getClient.addPromotionalWithoutImage(addFarmerParams)
         } else {
             val image: RequestBody = RetrofitUtils.fileToRequestBody(profileImage)
@@ -149,7 +150,7 @@ class AddPromotionalMaterialActivity : AppCompatActivity() {
                         if (resultCode == Activity.RESULT_OK) {
                             //Image Uri will not be null for RESULT_OK
                             val fileUri = data?.data
-//                            imgProfile.setImageURI(fileUri)
+                            iv_selected_image.setImageURI(fileUri)
                             //You can get File object from intent
                             profileImage = ImagePicker.getFile(data)
                             //You can also get File Path from intent

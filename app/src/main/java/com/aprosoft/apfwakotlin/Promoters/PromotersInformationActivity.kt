@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +38,108 @@ class PromotersInformationActivity : AppCompatActivity() {
         btn_search.setOnClickListener {
             checkAdhaarCard()
         }
+
+        et_promoter_adhaar_no.addTextChangedListener(object : TextWatcher {
+            private val TOTAL_SYMBOLS = 14 // size of pattern 0000-0000-0000-0000
+            private val TOTAL_DIGITS = 12 // max numbers of digits in pattern: 0000 x 4
+            private val DIVIDER_MODULO = 5 // means divider position is every 5th symbol beginning with 1
+            private val DIVIDER_POSITION = DIVIDER_MODULO - 1 // means divider position is every 4th symbol beginning with 0
+            private val DIVIDER = '-'
+            override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+            ) { // noop
+            }
+
+            override fun onTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    before: Int,
+                    count: Int
+            ) { // noop
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                if (!isInputCorrect(s, TOTAL_SYMBOLS, DIVIDER_MODULO, DIVIDER)) {
+
+                    var repl = buildCorrectString(
+                            getDigitArray(s, TOTAL_DIGITS),
+                            DIVIDER_POSITION,
+                            DIVIDER
+                    )
+
+                    et_promoter_adhaar_no.clearFocus();
+                    et_promoter_adhaar_no.setText(repl);
+                    et_promoter_adhaar_no.requestFocus();
+                    et_promoter_adhaar_no.setSelection(repl!!.length);
+
+                }
+            }
+
+            private fun isInputCorrect(
+                    s: Editable,
+                    totalSymbols: Int,
+                    dividerModulo: Int,
+                    divider: Char
+            ): Boolean {
+                var isCorrect =
+                        s.length <= totalSymbols // check size of entered string
+                for (i in 0 until s.length) { // check that every element is right
+                    isCorrect = if (i > 0 && (i + 1) % dividerModulo == 0) {
+                        isCorrect and (divider == s[i])
+                    } else {
+                        isCorrect and Character.isDigit(s[i])
+                    }
+                }
+                return isCorrect
+            }
+
+            private fun buildCorrectString(
+                    digits: CharArray,
+                    dividerPosition: Int,
+                    divider: Char
+            ): String? {
+                val formatted = StringBuilder()
+                for (i in digits.indices) {
+                    if (digits[i] != '\u0000') {
+                        formatted.append(digits[i])
+                        if (i > 0 && i < digits.size - 1 && (i + 1) % dividerPosition == 0) {
+                            formatted.append(divider)
+                        }
+                    }
+                }
+                return formatted.toString()
+            }
+
+            private fun getDigitArray(s: Editable, size: Int): CharArray {
+                val digits = CharArray(size)
+                var index = 0
+                var i = 0
+                while (i < s.length && index < size) {
+                    val current = s[i]
+                    if (Character.isDigit(current)) {
+                        digits[index] = current
+                        index++
+                    }
+                    i++
+                }
+                return digits
+            }
+        })
+
+
+
+        btn_own_id.setOnClickListener {
+            val obj = Singleton().getUserFromSharedPrefrence(this)
+            val intent = Intent(this,PromoterIdCardActivity::class.java)
+            intent.putExtra("PROMOTER",obj.toString())
+            intent.putExtra("ROLE",findRoleNameBasedOnRoleId(obj!!.getString("role_id")))
+            intent.putExtra("IMG","https://technothinksupapps.com/apfwa_app/assets/images/user/")
+            startActivity(intent)
+        }
+
 
         btn_show_id_card.setOnClickListener {
             if (userObject != null) {
@@ -90,11 +195,14 @@ class PromotersInformationActivity : AppCompatActivity() {
 
 
     fun checkAdhaarCard() {
-        val adhaarNo = et_promoter_adhaar_no.text.toString()
+        var adhaarNo = et_promoter_adhaar_no.text.toString()
         if (adhaarNo.isBlank()) {
             et_promoter_adhaar_no.error = "Enter Adhaar no."
             return
         }
+
+        adhaarNo = adhaarNo.replace("-","")
+
 
         val user_id = Singleton().getUserIdFromSavedUser(this)
         var role_id = Singleton().getUserRoleFromSavedUser(this)
@@ -127,6 +235,7 @@ class PromotersInformationActivity : AppCompatActivity() {
                         if (roleName != "") {
                             et_team_roll_name.setText(roleName)
                         }
+                        btn_show_id_card.visibility = View.VISIBLE
                     } else {
                         val intent = Intent(this@PromotersInformationActivity,AddPromoterActivity::class.java)
                         startActivity(intent)
@@ -150,6 +259,29 @@ class PromotersInformationActivity : AppCompatActivity() {
 
 
     fun findRoleNameBasedOnRoleId(): String {
+        if (roleListArray != null) {
+            if (role_id != "") {
+                var roleIndex = -1
+                for (i in 0 until roleListArray!!.length()) {
+                    val roleJsonObject = roleListArray!!.getJSONObject(i)
+                    val tempRoleId = roleJsonObject.getString("role_id")
+                    if (tempRoleId == role_id) {
+                        roleIndex = i
+                    }
+                }
+
+                if (roleIndex != -1) {
+                    val roleJsonObject = roleListArray!!.getJSONObject(roleIndex)
+                    return roleJsonObject.getString("role_name")
+                }
+
+
+            }
+        }
+        return ""
+    }
+
+    fun findRoleNameBasedOnRoleId(role_id:String): String {
         if (roleListArray != null) {
             if (role_id != "") {
                 var roleIndex = -1

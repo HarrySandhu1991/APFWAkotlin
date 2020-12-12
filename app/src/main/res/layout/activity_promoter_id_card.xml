@@ -119,6 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -159,7 +160,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Adhaar No : "
+                    android:text="Adhaar No :  "
                     android:layout_weight="1"/>
 
                 <TextView
@@ -206,7 +207,7 @@
             android:textColor="#FFF"
             android:textSize="15sp"
             android:gravity="center"
-            android:text="Regd. Office: C-III-05, Sterling Towers, Gavat Mandai, Shahupuri, Kolhapur - 416008 (MAH). Mob. 8459596960"/>
+            android:text="Regd. Office: C-III-05, Sterling Towers, Gavat Mandai, Shahupuri, Kolhapur - 416008 (MAH)."/>
 
 
     </RelativeLayout>

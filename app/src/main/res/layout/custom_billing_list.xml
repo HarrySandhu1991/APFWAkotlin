@@ -37,9 +37,17 @@
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
+                                    android:id="@+id/tv_billingID_text"
+                                    android:text="Bill Number"
+                                    android:layout_weight="0.45"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textSize="@dimen/text_size"/>
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
                                     android:id="@+id/tv_billingID"
                                     android:text="Billing Number"
-                                    android:layout_weight="0.4"
+                                    android:layout_weight="1"
                                     android:fontFamily="@font/roboto_bold"
                                     android:textSize="@dimen/text_size"/>
 
@@ -59,9 +67,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_regNo"
+                    android:id="@+id/tv_regNo_text"
                     android:text="Farmer Registration no"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.45"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_regNo"
+                    android:gravity="center_vertical"
+                    android:text="Farmer Registration no"
+                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/text_size"/>
 
@@ -80,9 +98,18 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tv_farmerId_text"
+                    android:text="Farmer Id"
+                    android:layout_weight="0.45"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tv_farmerId"
                     android:text="Farmer Id"
-                    android:layout_weight="0.4"
+                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/text_size"/>
 
@@ -103,7 +130,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Address"
-                    android:layout_weight="0.4"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.45"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/text_size"/>
 
@@ -111,6 +139,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Address"
+                    android:gravity="center_vertical"
                     android:id="@+id/tv_farmer_billing_address"
                     android:layout_weight="1"
                     android:lines="3"
@@ -130,7 +159,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Bill Amount"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.45"
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="@dimen/text_size"/>
 

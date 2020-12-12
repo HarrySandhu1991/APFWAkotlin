@@ -20,7 +20,10 @@ class FarmerRegistrationFormActivity : AppCompatActivity() {
         tv_membership_no.text = farmerObject!!.getString("farmer_reg_no")
         tv_received_from.text = farmerObject!!.getString("farmer_name")
         tv_adhaar_no.text = farmerObject!!.getString("farmer_adhar_no")
-        tv_district_distributor_name.text = farmerObject!!.getString("dealer_name")
-        tv_district_distributor_number.text = farmerObject!!.getString("dealer_mobile")
+        if (farmerObject!!.has("dealer_name"))
+            tv_district_distributor_name.text = farmerObject!!.getString("dealer_name")
+
+        if (farmerObject!!.has("dealer_mobile"))
+            tv_district_distributor_number.text = farmerObject!!.getString("dealer_mobile")
     }
 }

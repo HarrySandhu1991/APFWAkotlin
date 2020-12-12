@@ -12,7 +12,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
 
             <TextView
@@ -53,6 +54,60 @@
                 android:textSize="@dimen/text_size" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_state"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_owner">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:layout_weight="1"
+                android:id="@+id/tv_state"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:id="@+id/ll_district"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/ll_state">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="District"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="District"
+                android:layout_weight="1"
+                android:id="@+id/tv_district"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +115,7 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_below="@id/ll_owner">
+                android:layout_below="@id/ll_district">
 
             <TextView
                 android:layout_width="0dp"

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.customer_farmer_list.view.*
 import org.json.JSONArray
 
 class BillingListAdapter(val context: Context,
-                         val array: JSONArray) : BaseAdapter() {
+                         var array: JSONArray) : BaseAdapter() {
 
     private val inflater: LayoutInflater
             = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -45,5 +45,10 @@ class BillingListAdapter(val context: Context,
 //        rowView.tv_nursery_address.text = tempNurseryObject.getString("nursery_address")
 
         return rowView
+    }
+
+    fun notifyChanges(array: JSONArray) {
+        this.array = array
+        this.notifyDataSetChanged()
     }
 }

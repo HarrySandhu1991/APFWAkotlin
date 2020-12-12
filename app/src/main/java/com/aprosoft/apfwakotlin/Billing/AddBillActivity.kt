@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.aprosoft.apfwakotlin.Farmers.AddFarmerActivity
 import com.aprosoft.apfwakotlin.R
@@ -18,8 +19,6 @@ import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_add_bill.*
 import kotlinx.android.synthetic.main.activity_add_bill.et_farmerAddress
 import kotlinx.android.synthetic.main.activity_add_bill.ib_farmer_add_image
-import kotlinx.android.synthetic.main.activity_add_farmer.*
-import kotlinx.android.synthetic.main.activity_farmer_information.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -43,6 +42,13 @@ class AddBillActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_bill)
+
+        val role_id = Singleton().getUserRoleFromSavedUser(this)
+        if (role_id == "farmer") {
+            ll_farmer_details.visibility = View.GONE
+            farmerObject = Singleton().getUserFromSharedPrefrence(this)
+        }
+
 
         et_bill_date.setOnClickListener {
             val cal = Calendar.getInstance()
@@ -135,7 +141,7 @@ class AddBillActivity : AppCompatActivity() {
                         if (resultCode == Activity.RESULT_OK) {
                             //Image Uri will not be null for RESULT_OK
                             val fileUri = data?.data
-//                            imgProfile.setImageURI(fileUri)
+                            iv_selected_image.setImageURI(fileUri)
                             //You can get File object from intent
                             profileImage = ImagePicker.getFile(data)
                             //You can also get File Path from intent
@@ -172,8 +178,8 @@ class AddBillActivity : AppCompatActivity() {
 
         userObject = Singleton().getUserFromSharedPrefrence(this)!!
         Log.d("userObject","$userObject")
-        userId = userObject!!.getString("user_id")
-        roleId = userObject!!.getString("role_id")
+        userId = Singleton().getUserIdFromSavedUser(this)
+        roleId = Singleton().getUserRoleFromSavedUser(this)
 
         val billNo = et_bill_no.text.toString()
         val billDate = et_bill_date.text.toString()

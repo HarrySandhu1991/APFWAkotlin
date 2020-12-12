@@ -2,6 +2,7 @@ package com.aprosoft.apfwakotlin.Shared
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import com.kaopiz.kprogresshud.KProgressHUD
 import org.json.JSONObject
 
@@ -38,7 +39,12 @@ class Singleton {
     fun getUserIdFromSavedUser(context: Context) : String {
         val userJSONObject = getUserFromSharedPrefrence(context)
         if (userJSONObject != null) {
-            return userJSONObject.getString("user_id")
+            if (userJSONObject.has("farmer_id")) {
+                return userJSONObject.getString("farmer_id")
+            } else if (userJSONObject.has("user_id"))
+                return userJSONObject.getString("user_id")
+            else
+                return ""
         } else {
             return ""
         }
@@ -47,10 +53,25 @@ class Singleton {
     fun getUserRoleFromSavedUser(context: Context) :String {
         val userJSONObject = getUserFromSharedPrefrence(context)
         if (userJSONObject != null) {
-            return userJSONObject.getString("role_id")
+            if (userJSONObject.has("role_id"))
+                return userJSONObject.getString("role_id")
+            else
+                return ""
         } else {
             return ""
         }
+    }
+
+    fun removeUserFromPreferences(context: Context) : Boolean {
+        val sharedPreferences: SharedPreferences =context.getSharedPreferences(
+                prefName,
+                Context.MODE_PRIVATE
+        )
+        if (sharedPreferences.contains(userPref)) {
+            sharedPreferences.edit().remove(userPref).apply()
+            return true
+        }
+        return false
     }
 
     fun createLoading(context: Context?, title: String?, message: String?): KProgressHUD? {

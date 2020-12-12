@@ -111,7 +111,7 @@ interface APIInterface {
 
     @POST("Mobile_App/Transaction_API/add_promotion_material")
     @Multipart
-    fun addPromotional(@Part profile_image: MultipartBody.Part, @PartMap data:HashMap<String, RequestBody>) : Call<ResponseBody>
+    fun addPromotional(@Part material_file: MultipartBody.Part, @PartMap data:HashMap<String, RequestBody>) : Call<ResponseBody>
 
     @POST("Mobile_App/Transaction_API/add_promotion_material")
     @Multipart
@@ -124,6 +124,16 @@ interface APIInterface {
     @FormUrlEncoded
     @POST("Mobile_App/Transaction_API/nursery_owner_bill_list")
     fun nurseryOwnerBillList(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
+
+
+    @FormUrlEncoded
+    @POST("Mobile_App/Transaction_API/bill_list")
+    fun adminBillList(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
+
+
+    @FormUrlEncoded
+    @POST("Mobile_App/Farmer_API/farmer_bill_list")
+    fun farmerBillList(@FieldMap params: HashMap<String, String>):Call<ResponseBody>
 
 
 

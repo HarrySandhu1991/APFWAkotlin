@@ -51,7 +51,19 @@
                 android:layout_height="match_parent"
                 android:id="@+id/lv_team_list"
                 android:divider="@null"
+                android:layout_above="@id/btn_farmer_list"
                 android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Farmer List"
+                android:textColor="#FFF"
+                android:id="@+id/btn_farmer_list"
+                android:textSize="@dimen/text_size"
+                android:fontFamily="@font/roboto_bold"
+                android:background="@drawable/rounded_button_green"
+                android:layout_alignParentBottom="true"/>
 
 
 
